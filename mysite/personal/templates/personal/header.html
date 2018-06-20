@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<title>Shree Search</title>
+	<meta charset="utf-8" />
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'personal/css/bootstrap.min.css' %}" type = "text/css"/>
+	<meta name="viewport" content = "width=device-width, initial-scale=1.0">
+	
+	<style type="text/css">
+		html,
+		body {
+		  height:100%
+		}
+	</style>
+</head>
+
+<body class="body" style="background-color:#f6f6f6">
+	<div class="container-fluid" style="min-height:95%; ">
+		<div class="row">
+			  <div class="col-sm-10">
+				  <br>
+				  <center>
+					<img src="{% static 'personal/img/shree.jpeg' %}" class="responsive-img" style='max-height:100px;' alt="face">
+				  </center>
+			  </div>
+		</div><hr>
+
+		<div class="row">
+		  <div class="col-sm-10">
+		  <br>
+
+		  <center>
+			<div id="searchform">
+			<form action="/search/" method="POST">
+			   {% csrf_token %}
+				<input id="search_term" class="search_term" type="text" placeholder="Enter new keywords to start your search here" aria-label="Search" /></div>
+			<button type="submit">Go</button>
+			</form>
+			</div>
+ 
+			<div id="searchresults">
+			{% for result in results %}
+			   {{ result.title }} - {{ result.text }}
+			{% endfor %}
+			</div>
+		   
+		
+		  </div> <!--col-sm-10-->
+		</div> 
+	</div>
+	
+	<footer>
+		<div class="container-fluid" style='margin-left:15px'>
+			<p><a href="#" target="blank">Contact</a> | <a href="#" target="blank">LinkedIn</a> | <a href="#" target="blank">Twitter</a> | <a href="#" target="blank">Google+</a></p>
+		</div>
+	</footer>	
+	
+</body>
+
+</html>
