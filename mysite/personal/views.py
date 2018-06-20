@@ -14,4 +14,4 @@ def search_results(request):
         "results": results,
     }
  
-    return render(request, 'templates/search.html', context)
+    return render(request, 'personal/search.html')
